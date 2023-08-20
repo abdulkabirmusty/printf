@@ -43,7 +43,6 @@ int _printf(const char *format, ...)
 		{		
 			_printchar(format[i]);
 		}
-		count++;
 	}
 	va_end(args);
 	return (count);
