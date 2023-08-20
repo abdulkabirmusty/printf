@@ -16,17 +16,10 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
-		{
-			_printchar(format[i]);
-			count++;
-		}
-		else
-		{
-			i++; /* Move to the cahrcater after */
-		}
 		switch (format[i])
 		{
+		/* case '%': don't finish yet */
+			
 		case 'c':
 			_printchar(va_arg(args, int));
 			i++;
