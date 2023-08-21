@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i, string_count, count = 0;
+	unsigned int i, count = 0, string_count = 0;
 
 	va_list args;
 
@@ -21,14 +21,14 @@ int _printf(const char *format, ...)
 		{
 			_printchar(format[i]);
 		}
-		else if (format[i + 1] == 'c')
+		else if (format[i] == '%' && format[i + 1] == 'c')
 		{
 			_printchar(va_arg(args, int));
 			i++;
 		}
-		else if (format[i + 1] == 's')
+		else if (format[i] == '%' && format[i + 1] == 's')
 		{
-			string_count = _printstring(va_arg(args, char *));
+			string_count = _printstring(va_arg(args, char*));
 			i++;
 			count += (string_count - 1);
 		}
