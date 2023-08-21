@@ -14,7 +14,7 @@ Task 8 -  Sarcasm is lost in print
 Task 9 -  Print some money and give it to us for the rain forests                      
 Task 10 -  The negative is the equivalent of the composer's score, and the print the performance       
 Task 11 -  It's depressing when you're still around and your albums are out of print
-Task 12 -  Every time that I wanted to give up, if I saw an interesting textile, print whatever, suddenly I would see a collection 
-Task 13 -  Print is the sharpest and the strongest weapon of our party 
-Task 14 -  The flood of print has turned reading into a process of gulping rather than savoring   
+Task 12 -  Every time that I wanted to give up, if I saw an interesting textile, print whatever, suddenly I would see a collection
+Task 13 -  Print is the sharpest and the strongest weapon of our party
+Task 14 -  The flood of print has turned reading into a process of gulping rather than savoring
 Task 15 -  * All the above options work well together.
