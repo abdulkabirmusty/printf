@@ -11,24 +11,32 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
+		switch (format[i])
 		{
-			_printchar(format[i]);
-		}
-		else if (format[i] == '%' && format[i + 1] == 'c')
-		{
-			_printchar(va_arg(args, int));
-			i++;
-		}
-		else if (format[i] == '%' && format[i + 1] == 's')
-		{
-			string_count = _printstring(va_arg(args, char*));
-			i++;
-			count += (string_count - 1);
-		}
-		else if (format[i + 1] == '%')
-		{
-			_printchar('%');
+			case '%':
+				switch (format[i + 1])
+				{
+					case 'c':
+						_printchar(va_arg(args, int));
+						i++;
+						break;
+					case 's':
+						string_count = _printstring(va_arg(args, char *));
+						i++;
+						count += (string_count - 1);
+						break;
+					case '%':
+						_printchar('%');
+						i++;
+						break;
+					default:
+						_printchar('%');
+						break;
+				}
+				break;
+			default:
+				_printchar(format[i]);
+				break;
 		}
 		count++;
 	}
