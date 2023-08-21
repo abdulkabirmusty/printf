@@ -23,22 +23,27 @@ int _printf(const char *format, ...)
             {
                 case 'c':
                     _printchar(va_arg(args, int));
+                    count++;
                     break;
                 case 's':
                     string_count = _printstring(va_arg(args, char *));
                     count += string_count;
+                  count++;
                     break;
                 case '%':
                     _printchar('%');
+                    count++;
                     break;
                 default:
                     _printchar('%');
                     _printchar(format[i]);
+                    count++;
                     break;
             }
-            count++;
+            
         }
     }
     va_end(args);
     return (count);
 }
+
