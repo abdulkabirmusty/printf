@@ -4,18 +4,19 @@
  * _printstring - prints a string
  * @s: The string to print_out
  *
- * Return: On success 1.
- * On error, -1 is returned.
+ * Return: Number of characters printed.
  */
 int _printstring(char *s)
 {
-	int cnt;
-  if (s)
-  {
-    for (cnt = 0; s[cnt] != '\0'; cnt++)
-      {
-          _printchar(s[cnt]);
-      }
-  }
-  return (0);
+	int cnt = 0;
+
+	if (s)
+	{
+		while (s[cnt] != '\0')
+		{
+			_printchar(s[cnt]);
+			cnt++;
+		}
+	}
+	return (cnt);
 }
