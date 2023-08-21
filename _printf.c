@@ -1,9 +1,12 @@
 #include "main.h"
+
 /**
- * _printf - output text
- * @format: the format specifier
- * Return: (COUNT);
+ * _printf- This produces output according to format
+ * @format: The format string
+ *
+ * Return: Number of characters are printed
  */
+
 int _printf(const char *format, ...)
 {
 	unsigned int i, count = 0, string_count = 0;
@@ -12,31 +15,38 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
 	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
+		switch (format[i])
 		{
-			_printchar(format[i]);
+			case '%':
+				switch (format[i + 1])
+				{
+					case 'c':
+						_printchar(va_arg(args, int));
+						i++;
+						break;
+					case 's':
+						string_count = _printstring(va_arg(args, char *));
+						i++;
+						count += (string_count - 1);
+						break;
+					case '%':
+						_printchar('%');
+						i++;
+						break;
+					default:
+						_printchar('%');
+						break;
+				}
+				break;
+			default:
+				_printchar(format[i]);
+				break;
 		}
-		else if (format[i] == '%' && format[i + 1] == 'c')
-		{
-			_printchar(va_arg(args, int));
-			i++;
-		}
-		else if (format[i] == '%' && format[i + 1] == 's')
-		{
-			string_count = _printstring(va_arg(args, char*));
-			i++;
-			count += (string_count - 1);
-		}
-		else if (format[i + 1] == '%')
-		{
-			_printchar('%');
-		}
-		count += 1;
+		count++;
 	}
 	va_end(args);
 	return (count);
