@@ -18,5 +18,10 @@ int _printstring(char *s)
 			cnt++;
 		}
 	}
+	else
+	{
+		_printstring("(null)");
+		cnt = 6;
+	}
 	return (cnt);
 }
