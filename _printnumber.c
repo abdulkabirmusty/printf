@@ -9,32 +9,39 @@
 
 int _printnumber(va_list inT)
 {
-	long int dig, count = 1, len = 0, temp, x;
+	int i, count = 0, len = 0, temp, x;
 
-	dig = va_arg(inT, int);
+	int dig = va_arg(inT, int);
 
 	if (dig < 0)
 	{
 		_printchar('-');
 		dig = -dig;
-		len++;
+		count++;
 	}
 
 	temp = dig;
 	while (temp > 9)
 	{
 		temp = temp / 10;
-		count = count * 10;
-	}
-
-	while (count > 0)
-	{
-		x = dig / count;
-		dig = dig % count;
-		count = count / 10;
-		_printchar('0' + x);
 		len++;
 	}
+	len++;
 
-	return (len);
+	while (len > 0)
+	{
+		x = dig;
+		temp = 1;
+		for (i = 1; i < len; i++)
+		{
+			x = x / 10;
+			temp = temp * 10;
+		}
+		x = x % 10;
+		_printchar('0' + x);
+		len--;
+		count++;
+	}
+
+	return (count);
 }
