@@ -1,18 +1,40 @@
 #include "main.h"
 
 /**
- * _printnumber - print integer using _printchar
- * @n: The integer to print
+ * _printnumber - print custom function for %d and %i using _printchar
+ * @inT: The integer to print
+ *
+ * Return: Number of character printed
  */
 
-void _printnumber(int n)
+int _printnumber(va_list inT)
 {
-	if (n < 0)
+	long int dig, count = 1, len = 0, temp, x;
+
+	dig = va_arg(inT, int);
+
+	if (dig < 0)
 	{
 		_printchar('-');
-		n = -n;
+		dig = -dig;
+		len++;
 	}
-	if (n / 10 != 0)
-		_printnumber(n / 10);
-	_printchar((n % 10) + '0');
+
+	temp = dig;
+	while (temp > 9)
+	{
+		temp = temp / 10;
+		count = count * 10;
+	}
+
+	while (count > 0)
+	{
+		x = dig / count;
+		dig = dig % count;
+		count = count / 10;
+		_printchar('0' + x);
+		len++;
+	}
+
+	return (len);
 }

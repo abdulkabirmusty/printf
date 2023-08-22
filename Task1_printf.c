@@ -21,7 +21,7 @@ int Task1_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
 		{
-			_printnumber(va_arg(args, int));
+			count += _printnumber(args);
 			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
