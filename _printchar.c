@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printchar - prints the character
+ * _printchar - prints the Character
  * @c: The character to print_out
  *
  * Return: On success 1.
