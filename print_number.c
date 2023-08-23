@@ -7,20 +7,20 @@
  */
 int print_number(int n)
 {
-    int count = 0;
+	int count = 0;
 
-    if (n < 0)
-    {
-        _printchar('-');
-        count++;
-        n = -n;
-    }
+	if (n < 0)
+	{
+		_printchar('-');
+		count++;
+		n = -n;
+	}
 
-    if (n / 10)
-        count += print_number(n / 10);
+	if (n / 10)
+		count += print_number(n / 10);
 
-    _printchar(n % 10 + '0');
-    count++;
+	_printchar(n % 10 + '0');
+	count++;
 
-    return (count);
+	return (count);
 }
