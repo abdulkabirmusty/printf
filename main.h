@@ -9,6 +9,5 @@ int _printf(const char *format, ...);
 int _printchar(char c);
 int _printstring(char *s);
 int _printnumber(va_list inT);
-int Task1_printf(const char *format, ...);
-
+int print_number(int n);
 #endif
